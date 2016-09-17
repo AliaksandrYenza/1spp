@@ -40,7 +40,7 @@ namespace ConsoleApplication1
     
     public class QuickSort
     {
-        static void quickSort(int[] a, int l, int r)
+        static void Sort(int[] a, int l, int r)
         {
             int temp;
             int x = a[l + (r - l) / 2];
@@ -68,3 +68,4 @@ namespace ConsoleApplication1
                 quickSort(a, l, j);
         }
     }
+}
