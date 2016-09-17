@@ -10,6 +10,36 @@ namespace ConsoleApplication1
     {
 
 
+        
+        
+        
+        static void Main()
+        {
+            Program.QuickSort abcd = new Program.QuickSort();
+            Random random = new Random();
+            int size;
+            size = Convert.ToInt32(Console.ReadLine());
+
+            int[] a = new int[size];
+            for (int index = 0; index < a.Length; ++index)
+                a[index] = random.Next(-10000, 10000);
+            
+
+            quickSort(a, 0, size - 1);
+
+            
+            for (int i = 0; i < size; i++)
+            {
+                Console.Write(a[i]);
+                Console.Write(' ');
+
+
+            }
+        }
+    }
+    
+    public class QuickSort
+    {
         static void quickSort(int[] a, int l, int r)
         {
             int temp;
@@ -37,28 +67,4 @@ namespace ConsoleApplication1
             if (l < j)
                 quickSort(a, l, j);
         }
-        static void Main()
-        {
-           
-            Random random = new Random();
-            int size;
-            size = Convert.ToInt32(Console.ReadLine());
-
-            int[] a = new int[size];
-            for (int index = 0; index < a.Length; ++index)
-                a[index] = random.Next(-10000, 10000);
-            
-
-            quickSort(a, 0, size - 1);
-
-            
-            for (int i = 0; i < size; i++)
-            {
-                Console.Write(a[i]);
-                Console.Write(' ');
-
-
-            }
-        }
     }
-}
