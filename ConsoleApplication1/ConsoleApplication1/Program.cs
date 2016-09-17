@@ -34,6 +34,10 @@ namespace ConsoleApplication1
     
     public class QuickSort
     {
+        
+         private IComparer comparer = (IComparer)new Program.ClassCMP();
+
+        
         static void Sort(int[] a, int l, int r)
         {
             int temp;
@@ -62,4 +66,13 @@ namespace ConsoleApplication1
                 Sort(a, l, j);
         }
     }
+    
+            public class ClassCMP : IComparer
+            {
+                int IComparer.Compare(object firstElement, object secondElement)
+                {
+                    return new CaseInsensitiveComparer().Compare(secondElement, firstElement);
+                }
+            } 
+    
 }
