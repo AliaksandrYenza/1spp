@@ -9,29 +9,23 @@ namespace ConsoleApplication1
     class Program
     {
 
-
-        
-        
         
         static void Main()
         {
             Program.QuickSort abcd = new Program.QuickSort();
             Random random = new Random();
             int size;
-            size = Convert.ToInt32(Console.ReadLine());
-
-            int[] a = new int[size];
+            int[] a = new int[Convert.ToInt32(Console.ReadLine())];
             for (int index = 0; index < a.Length; ++index)
                 a[index] = random.Next(-10000, 10000);
             
 
-            quickSort(a, 0, size - 1);
+             abcd.Sort(a, 0, a.Length - 1);
 
             
-            for (int i = 0; i < size; i++)
-            {
-                Console.Write(a[i]);
-                Console.Write(' ');
+              for (int index = 0; index < array.Length; ++index)
+                    Console.Write("{0} ", (object)array[index]);
+
 
 
             }
@@ -62,10 +56,10 @@ namespace ConsoleApplication1
                 }
             }
             if (i < r)
-                quickSort(a, i, r);
+                Sort(a, i, r);
 
             if (l < j)
-                quickSort(a, l, j);
+                Sort(a, l, j);
         }
     }
 }
