@@ -44,9 +44,11 @@ namespace QuickSort
                             --j;
                         if (i <= j)
                         {
-                            Swap(array, i, j);
-                            i++;
-                            j--;
+                             temp = a[i];
+                            a[i] = a[j];
+                             a[j] = temp;
+                              i++;
+                             j--;
                         }
                     }
 
@@ -56,15 +58,7 @@ namespace QuickSort
                         Sort(array, left, j);
                 }
 
-                private void Swap(int[] array, int i, int j)
-                {
-                    int num = array[i];
-
-                    array[i] = array[j];
-                    array[j] = num;
-                }
-            }
-           
+             
             public class ClassCMP : IComparer
             {
                 int IComparer.Compare(object firstElement, object secondElement)
