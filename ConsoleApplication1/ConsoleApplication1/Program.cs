@@ -4,69 +4,67 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace QuickSort
 {
-    class Program
-    {
-
-        
-        static void Main()
+    
+        public class Program
         {
-            Program.QuickSort abcd = new Program.QuickSort();
-            Random random = new Random();
-            int size;
-            int[] a = new int[Convert.ToInt32(Console.ReadLine())];
-            for (int index = 0; index < a.Length; ++index)
-                a[index] = random.Next(-10000, 10000);
-            
+            private static void Main(string[] args)
+            {
+                Program.QuickSort abcd = new Program.QuickSort();
+                Random rndm = new Random();
 
-             abcd.Sort(a, 0, a.Length - 1);
+                int[] array = new int[Convert.ToInt32(Console.ReadLine())];
+                for (int index = 0; index < array.Length; ++index)
+                    array[index] = rndm.Next(-1000, 1000);
 
-            
-              for (int index = 0; index < array.Length; ++index)
+                abcd.Sort(array, 0, array.Length - 1);
+
+                for (int index = 0; index < array.Length; ++index)
                     Console.Write("{0} ", (object)array[index]);
 
-
-
+                
             }
-        }
-    }
-    
-    public class QuickSort
-    {
-        
-         private IComparer comparer = (IComparer)new Program.ClassCMP();
 
-        
-        static void Sort(int[] a, int l, int r)
-        {
-            int temp;
-            int x = a[l + (r - l) / 2];
-           
-            int i = l;
-            int j = r;
-            
-            while (i <= j)
+            public class QuickSort
             {
-                while (a[i] < x) i++;
-                while (a[j] > x) j--;
-                if (i <= j)
+                private IComparer comparer = (IComparer)new Program.ClassCMP();
+
+                public void Sort(int[] array, int left, int right)
                 {
-                    temp = a[i];
-                    a[i] = a[j];
-                    a[j] = temp;
-                    i++;
-                    j--;
+                    int num = array[left + (right - left) / 2 + 1];
+                    int i = left;
+                    int j = right;
+
+                    while (i <= j)
+                    {
+                        while (comparer.Compare(array[i], num) == 1)
+                            ++i;
+                        while (comparer.Compare(array[j], num) == -1)
+                            --j;
+                        if (i <= j)
+                        {
+                            Swap(array, i, j);
+                            i++;
+                            j--;
+                        }
+                    }
+
+                    if (comparer.Compare(i, right) == 1)
+                        Sort(array, i, right);
+                    if (comparer.Compare(left, j) == 1)
+                        Sort(array, left, j);
+                }
+
+                private void Swap(int[] array, int i, int j)
+                {
+                    int num = array[i];
+
+                    array[i] = array[j];
+                    array[j] = num;
                 }
             }
-            if (i < r)
-                Sort(a, i, r);
-
-            if (l < j)
-                Sort(a, l, j);
-        }
-    }
-    
+           
             public class ClassCMP : IComparer
             {
                 int IComparer.Compare(object firstElement, object secondElement)
@@ -74,5 +72,5 @@ namespace ConsoleApplication1
                     return new CaseInsensitiveComparer().Compare(secondElement, firstElement);
                 }
             } 
-    
-}
+        }
+    }
