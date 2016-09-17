@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,41 +31,43 @@ namespace QuickSort
             {
                 private IComparer comparer = (IComparer)new Program.ClassCMP();
 
-                public void Sort(int[] array, int left, int right)
+                public void Sort(int[] a, int left, int right)
                 {
-                    int num = array[left + (right - left) / 2 + 1];
+                    int num = a[left + (right - left) / 2 + 1];
                     int i = left;
                     int j = right;
-
+                    int temp;
                     while (i <= j)
                     {
-                        while (comparer.Compare(array[i], num) == 1)
+                        while (comparer.Compare(a[i], num) == 1)
                             ++i;
-                        while (comparer.Compare(array[j], num) == -1)
+                        while (comparer.Compare(a[j], num) == -1)
                             --j;
                         if (i <= j)
                         {
-                             temp = a[i];
-                            a[i] = a[j];
-                             a[j] = temp;
-                              i++;
-                             j--;
-                        }
+                        temp = a[i];
+                        a[i] = a[j];
+                        a[j] = temp;
+                        i++;
+                        j--;
+                    }
                     }
 
                     if (comparer.Compare(i, right) == 1)
-                        Sort(array, i, right);
+                        Sort(a, i, right);
                     if (comparer.Compare(left, j) == 1)
-                        Sort(array, left, j);
+                        Sort(a, left, j);
                 }
 
-             
+         
+            }
+           
             public class ClassCMP : IComparer
             {
                 int IComparer.Compare(object firstElement, object secondElement)
                 {
                     return new CaseInsensitiveComparer().Compare(secondElement, firstElement);
                 }
-            } 
+            }
         }
     }
