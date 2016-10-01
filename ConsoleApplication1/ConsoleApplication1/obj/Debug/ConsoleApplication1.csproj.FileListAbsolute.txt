@@ -4,3 +4,6 @@ D:\teach\labs\OTHER\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApp
 D:\teach\labs\OTHER\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
 D:\teach\labs\OTHER\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 D:\teach\labs\OTHER\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+D:\Documents\GitHub\1spp\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+D:\Documents\GitHub\1spp\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+D:\Documents\GitHub\1spp\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
